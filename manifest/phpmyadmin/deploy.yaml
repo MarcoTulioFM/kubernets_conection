@@ -17,6 +17,12 @@ spec:
         image: phpmyadmin:latest
         env:
         - name: PMA_HOST
-          value: mariadb
+          valueFrom:
+            secretKeyRef:
+              name: auth-database
+              key: HOST
         - name: MYSQL_ROOT_PASSWORD
-          value: '2474'
+          valueFrom:
+            secretKeyRef:
+              name: auth-database
+              key: MYSQL_ROOT_PASSWORD

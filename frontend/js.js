@@ -1,11 +1,11 @@
 $("#button-blue").on("click", function() {
     
-    var txt_nome = $("#name").val();
-    var txt_email = $("#email").val();
-    var txt_comentario = $("#comment").val();
+    let txt_nome = $("#name").val();
+    let txt_email = $("#email").val();
+    let txt_comentario = $("#comment").val();
 
     $.ajax({
-        url: "http://35.184.202.113",
+        url: "http://34.172.23.157",
         
         type: "post",
         data: {nome: txt_nome, comentario: txt_comentario, email: txt_email},

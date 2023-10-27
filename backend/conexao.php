@@ -1,8 +1,12 @@
 <?php
-$servername = "mariadb";
-$username = "root";
-$password = "2474";
-$database = "kube";
+$servername = getenv('HOST');
+$username = 'root';
+$password = getenv('MYSQL_ROOT_PASSWORD');
+$database = getenv('MYSQL_DATABASE');
+
+echo $servername;
+echo $password;
+echo $database;
 
 // Criar conexão
 

@@ -18,3 +18,7 @@ if ($link->query($query) === TRUE) {
   echo "Error: " . $link->error;
 }
 ?>
+
+<html>
+  <h1>Oi</h1>
+</html>

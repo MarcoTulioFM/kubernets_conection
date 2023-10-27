@@ -13,6 +13,13 @@ spec:
     spec:
       containers:
       - name: back
-        image: marcotfm/backend_connection:2.1
+        image: marcotfm/back:1.2
         ports:
         - containerPort: 80
+        volumeMounts:
+        - name: secrets-volume
+          mountPath: /secrets
+      volumes:
+      - name: secrets-volume
+        secret:
+          secretName: auth-database

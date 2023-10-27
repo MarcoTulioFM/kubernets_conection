@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: front
 spec:
+  replicas: 5
   selector:
     matchLabels:
       app: front
@@ -13,6 +14,6 @@ spec:
     spec:
       containers:
       - name: front
-        image: marcotfm/front_connection:1.2
+        image: marcotfm/front:1.0
         ports:
         - containerPort: 80
