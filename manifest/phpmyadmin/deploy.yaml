@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phpmyadmin
+spec:
+  selector:
+    matchLabels:
+      app: phpmyadmin
+  template: 
+    metadata:
+      name: phpmyadmin
+      labels: 
+        app: phpmyadmin
+    spec:
+      containers:
+      - name: phpmyadmin
+        image: phpmyadmin:latest
+        env:
+        - name: PMA_HOST
+          value: mariadb
+        - name: MYSQL_ROOT_PASSWORD
+          value: '2474'

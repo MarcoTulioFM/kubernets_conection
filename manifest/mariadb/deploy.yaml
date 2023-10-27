@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mariadb
+spec:
+  selector:
+    matchLabels:
+      app: mariadb
+  template:
+    metadata:
+      labels:  # Corrigido para "labels"
+        app: mariadb
+    spec:
+      containers:
+      - name: mariadb
+        image: mariadb:latest
+        ports:
+          - containerPort: 3306
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: '2474'
+        - name: MYSQL_DATABASE
+          value: kube
+        volumeMounts:
+        - name: dados
+          mountPath: /var/lib/mysql/
+      volumes:
+      - name: dados
+        persistentVolumeClaim:
+          claimName: mariadb
