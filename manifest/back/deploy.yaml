@@ -16,10 +16,23 @@ spec:
         image: marcotfm/back:1.2
         ports:
         - containerPort: 80
-        volumeMounts:
-        - name: secrets-volume
-          mountPath: /secrets
-      volumes:
-      - name: secrets-volume
-        secret:
-          secretName: auth-database
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: auth-database
+              key: MYSQL_ROOT_PASSWORD
+        - name: HOST
+          valueFrom:
+            secretKeyRef: 
+              name: auth-database
+              key: HOST
+        - name: MYSQL_DATABASE
+          valueFrom:
+            secretKeyRef:
+              name: auth-database
+              key: MYSQL_DATABASE
+        
+          
+
+
